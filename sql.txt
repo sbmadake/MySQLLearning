@@ -1,0 +1,27 @@
+CREATE TABLE CustomerMaster (
+     CustomerName varchar(100) not null,
+     LocationCode char(2) not null,
+     constraint PK_CustomerMaster PRIMARY KEY (CustomerName),
+     constraint UQ_CustomerMaster_Location UNIQUE (CustomerName,LocationCode), /* <-- Superkey here */
+     constraint CK_CustomerMaster_Locations CHECK (
+         LocationCode in ('IN','UK','AU')
+)
+
+CREATE TABLE IndianCustomer (
+     CustomerID int not null,
+     CustomerName varchar(100) not null,
+     CustomerDetails varchar(max) not null,
+     LocationCode as 'IN' persisted,
+     constraint FK_IndianCustomer_CustomerMaster FOREIGN KEY (CustomerName,LocationCode) references CustomerMaster (CustomerName,LocationCode)
+)
+
+
+CREATE TABLE Persons
+(
+P_Id int NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255),
+CONSTRAINT chk_Person CHECK (P_Id>0 AND City='Sandnes')
+)

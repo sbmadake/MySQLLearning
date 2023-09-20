@@ -1,0 +1,22 @@
+1] select sum(newsalary) from employee;
+2] select avg(newsalary) from employee;
+3] select * from employee where newsalary >= (select avg(newsalary) from employee);
+
+
+
+
+
+select * from employee where newsalary > 2000 and newsalary < 5000;
+
+
+
+
+create table emp5 as (select empId from  employee where empId is null);
+create table emp4 as (select empId from  employee);
+create table emp2 like employee;
+create table emp1(select empid,name from employee);
+create table emp(select * from employee);
+insert into newemployee1(select empid,name from employee);
+insert into newemployee(select * from
+
+ employee);

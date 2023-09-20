@@ -1,0 +1,12 @@
+create table shirts (name varchar(30),size enum('xsmall','small','medium','large'));
+
+insert into shirts values('POLO','small');
+
+insert into shirts values('corcs','large');
+insert into shirts values('JP','asdf');
+
+create table member (Member_Id int(5) primary key,Member_Name varchar(20),Member_address varchar(10),Acc_Open_Date date,Membership_type enum('Lifetime','Annual','Half Yearly','Quarterly'),Fees_paid int(5),Max_Books_Allowed int(2),Penalty_Amount double)
+
+
+
+
